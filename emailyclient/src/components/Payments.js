@@ -9,6 +9,8 @@ class Payments extends Component {
     
     
     render() {
+        console.log("public key in heroku", process.env.REACT_APP_STRIPE_KEY);
+        
         return (
             <StripeCheckout 
                 name="Emaily"
