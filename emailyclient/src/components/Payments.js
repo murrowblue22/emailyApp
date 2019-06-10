@@ -9,11 +9,11 @@ import { handleToken } from '../actions';
 
 class Payments extends Component {
     
+    componentDidMount() {
+        Stripe.setPublishableKey(process.env.REACT_APP_STRIPE_KEY);
+    }
     
     render() {
-        console.log("public key in heroku", process.env.REACT_APP_STRIPE_KEY);
-        Stripe.setPublishableKey(process.env.REACT_APP_STRIPE_KEY)
-        
         return (
             <StripeCheckout 
                 name="Emaily"
