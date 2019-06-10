@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 
+/* global Stripe */
+
 import { handleToken } from '../actions';
 
 
@@ -10,6 +12,7 @@ class Payments extends Component {
     
     render() {
         console.log("public key in heroku", process.env.REACT_APP_STRIPE_KEY);
+        Stripe.setPublishableKey(process.env.REACT_APP_STRIPE_KEY)
         
         return (
             <StripeCheckout 
