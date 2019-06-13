@@ -45,4 +45,12 @@ export const login = () => async dispatch => {
     dispatch({type: types.LOGIN});
 }; 
 
+export const submitSurvey = (values, history) => async dispatch => {
+   const res = await axios.post('/api/surveys', values); 
+   
+   
+   history.push('/surveys'); 
+   dispatch({ type: types.FETCH_USER, payload: res.data})
+}; 
+
     

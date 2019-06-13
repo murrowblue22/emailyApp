@@ -5,11 +5,13 @@ const express           = require('express'),
 const config            = require('./config/config.js'),
       {mongoose}        = require('./db/mongoose'),
       User              = require('./models/User'),
+      Survey            = require('./models/Survey'),
       cookieSession     = require('cookie-session'),
       passport          = require('passport'),
       passportConfig    = require('./services/passport'),
       authRoutes        = require('./routes/authRoutes'),
-      billingRoutes     = require('./routes/billingRoutes');
+      billingRoutes     = require('./routes/billingRoutes'),
+      surveyRoutes      = require('./routes/surveyRoutes');
 
 const PORT = (process.env.PORT === "8080") ? "5000" : process.env.PORT; 
 //const PORT = process.env.PORT;
@@ -27,6 +29,7 @@ app.use(passport.session());
 
 authRoutes(app);
 billingRoutes(app);
+surveyRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
       // Express will serve up production assets 
